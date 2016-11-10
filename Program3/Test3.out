@@ -1,0 +1,120 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs22 \cf0 \CocoaLigature0 \
+// async kernel first\
+\
+Johns-MacBook-Pro:ThreadOS grasshopper$ mv Kernel.java Kernel.old.java\
+Johns-MacBook-Pro:ThreadOS grasshopper$ mv Kernel.new.java Kernel.java\
+Johns-MacBook-Pro:ThreadOS grasshopper$ javac Kernel.java\
+Note: Kernel.java uses unchecked or unsafe operations.\
+Note: Recompile with -Xlint:unchecked for details.\
+Johns-MacBook-Pro:ThreadOS grasshopper$ java Boot\
+threadOS ver 1.0:\
+Type ? for help\
+threadOS: a new thread (thread=Thread[Thread-3,2,main] tid=0 pid=-1)\
+-->l Shell\
+l Shell\
+threadOS: a new thread (thread=Thread[Thread-5,2,main] tid=1 pid=0)\
+shell[1]% Test3 4\
+Test3\
+executing 4 pairs...\
+threadOS: a new thread (thread=Thread[Thread-7,2,main] tid=2 pid=1)\
+threadOS: a new thread (thread=Thread[Thread-9,2,main] tid=3 pid=2)\
+threadOS: a new thread (thread=Thread[Thread-11,2,main] tid=4 pid=2)\
+threadOS: a new thread (thread=Thread[Thread-13,2,main] tid=5 pid=2)\
+threadOS: a new thread (thread=Thread[Thread-15,2,main] tid=6 pid=2)\
+threadOS: a new thread (thread=Thread[Thread-17,2,main] tid=7 pid=2)\
+threadOS: a new thread (thread=Thread[Thread-19,2,main] tid=8 pid=2)\
+threadOS: a new thread (thread=Thread[Thread-21,2,main] tid=9 pid=2)\
+threadOS: a new thread (thread=Thread[Thread-23,2,main] tid=10 pid=2)\
+TAT: 168311ms\
+shell[2]% Test3 3\
+Test3\
+executing 3 pairs...\
+threadOS: a new thread (thread=Thread[Thread-25,2,main] tid=11 pid=1)\
+threadOS: a new thread (thread=Thread[Thread-27,2,main] tid=12 pid=11)\
+threadOS: a new thread (thread=Thread[Thread-29,2,main] tid=13 pid=11)\
+threadOS: a new thread (thread=Thread[Thread-31,2,main] tid=14 pid=11)\
+threadOS: a new thread (thread=Thread[Thread-33,2,main] tid=15 pid=11)\
+threadOS: a new thread (thread=Thread[Thread-35,2,main] tid=16 pid=11)\
+threadOS: a new thread (thread=Thread[Thread-37,2,main] tid=17 pid=11)\
+TAT: 126469ms\
+shell[3]% Test3 2 \
+Test3\
+executing 2 pairs...\
+threadOS: a new thread (thread=Thread[Thread-39,2,main] tid=18 pid=1)\
+threadOS: a new thread (thread=Thread[Thread-41,2,main] tid=19 pid=18)\
+threadOS: a new thread (thread=Thread[Thread-43,2,main] tid=20 pid=18)\
+threadOS: a new thread (thread=Thread[Thread-45,2,main] tid=21 pid=18)\
+threadOS: a new thread (thread=Thread[Thread-47,2,main] tid=22 pid=18)\
+TAT: 82688ms\
+shell[4]% Test3 1\
+Test3\
+executing 1 pair...\
+threadOS: a new thread (thread=Thread[Thread-49,2,main] tid=23 pid=1)\
+threadOS: a new thread (thread=Thread[Thread-51,2,main] tid=24 pid=23)\
+threadOS: a new thread (thread=Thread[Thread-53,2,main] tid=25 pid=23)\
+fib: 12586269025\
+TAT: 58748ms\
+shell[5]% \
+\
+// busy-wait kernel second\
+\
+Johns-MacBook-Pro:ThreadOS grasshopper$ mv Kernel.java Kernel.new.java\
+Johns-MacBook-Pro:ThreadOS grasshopper$ mv Kernel.old.java Kernel.java\
+Johns-MacBook-Pro:ThreadOS grasshopper$ javac Kernel.java\
+Note: Kernel.java uses unchecked or unsafe operations.\
+Note: Recompile with -Xlint:unchecked for details.\
+Johns-MacBook-Pro:ThreadOS grasshopper$ java Boot\
+threadOS ver 1.0:\
+Type ? for help\
+threadOS: a new thread (thread=Thread[Thread-3,2,main] tid=0 pid=-1)\
+-->l Shell\
+l Shell\
+threadOS: a new thread (thread=Thread[Thread-5,2,main] tid=1 pid=0)\
+shell[1]% Test3 4\
+Test3\
+executing 4 pairs...\
+threadOS: a new thread (thread=Thread[Thread-7,2,main] tid=2 pid=1)\
+threadOS: a new thread (thread=Thread[Thread-9,2,main] tid=3 pid=2)\
+threadOS: a new thread (thread=Thread[Thread-11,2,main] tid=4 pid=2)\
+threadOS: a new thread (thread=Thread[Thread-13,2,main] tid=5 pid=2)\
+threadOS: a new thread (thread=Thread[Thread-15,2,main] tid=6 pid=2)\
+threadOS: a new thread (thread=Thread[Thread-17,2,main] tid=7 pid=2)\
+threadOS: a new thread (thread=Thread[Thread-19,2,main] tid=8 pid=2)\
+threadOS: a new thread (thread=Thread[Thread-21,2,main] tid=9 pid=2)\
+threadOS: a new thread (thread=Thread[Thread-23,2,main] tid=10 pid=2)\
+TAT: 176372ms\
+shell[2]% Test3 3\
+Test3\
+executing 3 pairs...\
+threadOS: a new thread (thread=Thread[Thread-25,2,main] tid=11 pid=1)\
+threadOS: a new thread (thread=Thread[Thread-27,2,main] tid=12 pid=11)\
+threadOS: a new thread (thread=Thread[Thread-29,2,main] tid=13 pid=11)\
+threadOS: a new thread (thread=Thread[Thread-31,2,main] tid=14 pid=11)\
+threadOS: a new thread (thread=Thread[Thread-33,2,main] tid=15 pid=11)\
+threadOS: a new thread (thread=Thread[Thread-35,2,main] tid=16 pid=11)\
+threadOS: a new thread (thread=Thread[Thread-37,2,main] tid=17 pid=11)\
+TAT: 132865ms\
+shell[3]% Test3 2\
+Test3\
+executing 2 pairs...\
+threadOS: a new thread (thread=Thread[Thread-39,2,main] tid=18 pid=1)\
+threadOS: a new thread (thread=Thread[Thread-41,2,main] tid=19 pid=18)\
+threadOS: a new thread (thread=Thread[Thread-43,2,main] tid=20 pid=18)\
+threadOS: a new thread (thread=Thread[Thread-45,2,main] tid=21 pid=18)\
+threadOS: a new thread (thread=Thread[Thread-47,2,main] tid=22 pid=18)\
+TAT: 89998ms\
+shell[4]% Test3 1\
+Test3\
+executing 1 pair...\
+threadOS: a new thread (thread=Thread[Thread-49,2,main] tid=23 pid=1)\
+threadOS: a new thread (thread=Thread[Thread-51,2,main] tid=24 pid=23)\
+threadOS: a new thread (thread=Thread[Thread-53,2,main] tid=25 pid=23)\
+TAT: 55665ms\
+shell[5]% \
+}
